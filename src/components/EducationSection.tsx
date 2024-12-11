@@ -46,13 +46,19 @@ const EducationSection = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { 
+      y: 100,
+      opacity: 0,
+      scale: 0.9
+    },
     visible: {
       y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
         type: "spring",
-        damping: 15
+        stiffness: 100,
+        damping: 12
       }
     }
   };
@@ -61,8 +67,9 @@ const EducationSection = () => {
     <section id="education" className="py-20 bg-gradient-to-b from-secondary/30 to-secondary/50">
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-4xl font-bold text-center mb-12 text-primary"
         >
@@ -79,16 +86,42 @@ const EducationSection = () => {
             <motion.div
               key={index}
               variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
               className="bg-secondary/80 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/20"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="bg-primary/20 p-3 rounded-full">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-primary/20 p-3 rounded-full"
+                >
                   <GraduationCap className="text-primary w-6 h-6" />
-                </div>
+                </motion.div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white">{edu.degree}</h3>
-                  <p className="text-gray-400">{edu.institution}</p>
-                  <p className="text-gray-500">{edu.period}</p>
+                  <motion.h3 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-2xl font-semibold text-white"
+                  >
+                    {edu.degree}
+                  </motion.h3>
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-gray-400"
+                  >
+                    {edu.institution}
+                  </motion.p>
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-gray-500"
+                  >
+                    {edu.period}
+                  </motion.p>
                   <motion.ul
                     initial="hidden"
                     whileInView="visible"
@@ -109,9 +142,15 @@ const EducationSection = () => {
                           hidden: { opacity: 0, x: -20 },
                           visible: { opacity: 1, x: 0 }
                         }}
-                        className="text-gray-300 hover:text-primary transition-colors duration-300 flex items-center gap-2"
+                        whileHover={{ x: 10, color: "rgb(var(--primary))" }}
+                        className="text-gray-300 transition-colors duration-300 flex items-center gap-2"
                       >
-                        <span className="w-2 h-2 bg-primary rounded-full" />
+                        <motion.span 
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          transition={{ delay: idx * 0.1 }}
+                          className="w-2 h-2 bg-primary rounded-full"
+                        />
                         {achievement}
                       </motion.li>
                     ))}

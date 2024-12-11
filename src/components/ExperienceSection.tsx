@@ -35,19 +35,25 @@ const ExperienceSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.3
       }
     }
   };
 
   const itemVariants = {
-    hidden: { x: -50, opacity: 0 },
+    hidden: { 
+      x: -100,
+      opacity: 0,
+      scale: 0.9
+    },
     visible: {
       x: 0,
       opacity: 1,
+      scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100
+        stiffness: 100,
+        damping: 12
       }
     }
   };
@@ -75,15 +81,34 @@ const ExperienceSection = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="mb-8 bg-secondary/80 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary/20"
+              whileHover={{ scale: 1.02 }}
+              className="mb-8 bg-secondary/80 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/20"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="bg-primary/20 p-3 rounded-full">
+                <motion.div 
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-primary/20 p-3 rounded-full"
+                >
                   <Briefcase className="text-primary w-6 h-6" />
-                </div>
+                </motion.div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-white">{exp.title}</h3>
-                  <p className="text-gray-400">{exp.company} - {exp.period}</p>
+                  <motion.h3 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-2xl font-semibold text-white"
+                  >
+                    {exp.title}
+                  </motion.h3>
+                  <motion.p 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-gray-400"
+                  >
+                    {exp.company} - {exp.period}
+                  </motion.p>
                 </div>
               </div>
               <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
@@ -93,8 +118,8 @@ const ExperienceSection = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                    className="hover:text-primary transition-colors duration-300"
+                    whileHover={{ x: 10, color: "rgb(var(--primary))" }}
+                    className="transition-colors duration-300"
                   >
                     {item}
                   </motion.li>

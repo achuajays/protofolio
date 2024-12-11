@@ -36,49 +36,91 @@ const SkillsSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 50,
+      scale: 0.9
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
+
   return (
     <section id="skills" className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-4xl font-bold text-center mb-12"
         >
           Skills & Technologies
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        >
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              variants={cardVariants}
+              whileHover={{ scale: 1.05 }}
+              className="h-full"
             >
-              <Card className="bg-secondary border-primary/20 hover:border-primary/50 transition-colors">
+              <Card className="bg-secondary border-primary/20 hover:border-primary/50 transition-all duration-300 h-full hover:shadow-lg">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="p-2 bg-primary/10 rounded-lg text-primary"
+                  >
                     {category.icon}
-                  </div>
+                  </motion.div>
                   <CardTitle className="text-lg">{category.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, idx) => (
-                      <span
+                      <motion.span
                         key={idx}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ delay: idx * 0.1 }}
                         className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
                       >
                         {skill}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
