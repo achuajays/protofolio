@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Code2, Brain, Server, Terminal, Database, Cloud } from "lucide-react";
+import { Code2, Brain, Server, Terminal, Database, Cloud, Bot, ChartBar, Network } from "lucide-react";
 
 const SkillsSection = () => {
   const skillCategories = [
@@ -15,9 +15,19 @@ const SkillsSection = () => {
       skills: ["FastAPI", "React", "Node.js", "Express", "Django", "Spring Boot"],
     },
     {
-      title: "AI & ML",
+      title: "AI & ML Frameworks",
       icon: <Brain className="w-6 h-6" />,
-      skills: ["Machine Learning", "Natural Language Processing", "Deep Learning", "PyTorch", "TensorFlow"],
+      skills: ["HuggingFace", "Transformers", "OpenAI", "Anthropic", "Groq", "LangChain", "LlamaIndex", "Ollama"],
+    },
+    {
+      title: "LLM Tools & Orchestration",
+      icon: <Bot className="w-6 h-6" />,
+      skills: ["LLMware", "CrewAI", "LangGraph", "AutoGen", "LlamaHub"],
+    },
+    {
+      title: "Data Science",
+      icon: <ChartBar className="w-6 h-6" />,
+      skills: ["Data Analysis", "Data Visualization", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     },
     {
       title: "Backend & Databases",
@@ -41,7 +51,7 @@ const SkillsSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
@@ -72,7 +82,7 @@ const SkillsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-12"
+          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-flow"
         >
           Skills & Technologies
         </motion.h2>
@@ -81,7 +91,7 @@ const SkillsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto"
         >
           {skillCategories.map((category, index) => (
             <motion.div
@@ -108,9 +118,12 @@ const SkillsSection = () => {
                         key={idx}
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                        whileHover={{ 
+                          scale: 1.1,
+                          backgroundColor: 'rgba(155, 135, 245, 0.2)'
+                        }}
+                        transition={{ delay: idx * 0.05 }}
+                        className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm hover:shadow-md transition-all duration-300"
                       >
                         {skill}
                       </motion.span>
