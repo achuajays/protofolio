@@ -25,13 +25,13 @@ const Index = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex gap-4"
           >
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/achuajays" target="_blank" rel="noopener noreferrer">
               <Github className="w-6 h-6 hover:text-primary transition-colors" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/adarsh-ajay-9a8073226/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-6 h-6 hover:text-primary transition-colors" />
             </a>
-            <a href="mailto:your.email@example.com">
+            <a href="mailto:adarshajays139@gmail.com">
               <Mail className="w-6 h-6 hover:text-primary transition-colors" />
             </a>
           </motion.div>

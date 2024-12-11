@@ -18,14 +18,14 @@ const ContactSection = () => {
           </p>
           <div className="flex justify-center gap-8">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:adarshajays139@gmail.com"
               className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
             >
               <Mail className="w-6 h-6" />
               <span>Email</span>
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/achuajays"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"
@@ -34,7 +34,7 @@ const ContactSection = () => {
               <span>GitHub</span>
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/adarsh-ajay-9a8073226/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-300 hover:text-primary transition-colors"

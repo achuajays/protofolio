@@ -6,7 +6,7 @@ const EducationSection = () => {
     {
       degree: "Bachelor of Science in Data Analysis",
       institution: "Amity University",
-      period: "2020-2023",
+      period: "2024-2027",
       achievements: [
         "Specialized in Data Science and Machine Learning",
         "Completed projects in AI and Data Analytics",
@@ -16,7 +16,7 @@ const EducationSection = () => {
     {
       degree: "Diploma in Computer Engineering",
       institution: "Central Polytechnic College",
-      period: "2017-2020",
+      period: "2021-2024",
       achievements: [
         "Focus on software development and programming",
         "Developed multiple web applications",
@@ -26,7 +26,7 @@ const EducationSection = () => {
     {
       degree: "Plus 2 in Biology Science",
       institution: "St. Joseph HSS",
-      period: "2015-2017",
+      period: "2019-2021",
       achievements: [
         "Strong foundation in scientific principles",
         "Active participation in science exhibitions",
