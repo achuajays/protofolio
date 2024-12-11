@@ -1,43 +1,79 @@
 import { motion } from "framer-motion";
-import { Code, Terminal, Bot, BookOpen, Brain, Sparkles } from "lucide-react";
+import { Code, Terminal, Bot, BookOpen, Brain, Sparkles, FileText, MessageSquare, Headphones, Printer, Database, FileSearch, Mail, Briefcase, GraduationCap, Gamepad } from "lucide-react";
 
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "AI Scribe",
+      description: "Advanced medical transcription application integrating Deepgram's speech-to-text, OpenAI, and Groq Whisper for real-time SOAP note generation and audio processing.",
+      tech: ["Python", "Deepgram API", "OpenAI", "FastAPI", "Socket.IO"],
+      icon: <Headphones className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Class Name Generator",
+      description: "AI-powered tool that generates meaningful Python class names from descriptions using NLP, enhancing code readability and organization.",
+      tech: ["Python", "Streamlit", "Transformers", "Hugging Face"],
+      icon: <Code className="text-primary w-6 h-6" />
+    },
+    {
+      title: "ChatGPT API Integration",
+      description: "FastAPI-based implementation showcasing ChatGPT integration with session management and conversational AI capabilities.",
+      tech: ["FastAPI", "Python", "OpenAI API"],
+      icon: <MessageSquare className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Fax Automation System",
+      description: "Comprehensive fax processing system using AI for data extraction, with automated archiving and database integration.",
+      tech: ["Python", "Streamlit", "Anthropic API", "PostgreSQL", "Docker"],
+      icon: <Printer className="text-primary w-6 h-6" />
+    },
+    {
+      title: "OSCARS Data Extraction",
+      description: "Medical records data extraction system built with Java and JSP for healthcare applications and analytics.",
+      tech: ["Java", "JSP", "PDF parsing"],
+      icon: <Database className="text-primary w-6 h-6" />
+    },
+    {
+      title: "PDF Splitter & Data Extractor",
+      description: "Advanced tool for PDF processing with OCR capabilities and ML-powered data field extraction.",
+      tech: ["Python", "PyPDF2", "LangChain", "Transformers"],
+      icon: <FileSearch className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Teaching Agent",
+      description: "AI-powered educational assistant providing personalized learning experiences and interactive tutorials.",
+      tech: ["Python", "OpenAI API", "Streamlit"],
+      icon: <GraduationCap className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Resume Builder Agent",
+      description: "Intelligent system that helps create and optimize professional resumes using AI-driven suggestions.",
+      tech: ["Python", "OpenAI API", "React"],
+      icon: <FileText className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Game Agent",
+      description: "AI-powered gaming assistant that provides strategic gameplay suggestions and performance analysis.",
+      tech: ["Python", "Machine Learning", "PyTorch"],
+      icon: <Gamepad className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Email Agent",
+      description: "Smart email management system with automated response generation and priority sorting.",
+      tech: ["Python", "OpenAI API", "FastAPI"],
+      icon: <Mail className="text-primary w-6 h-6" />
+    },
+    {
+      title: "Job Search Agent",
+      description: "AI-driven job search assistant that matches skills with opportunities and provides application insights.",
+      tech: ["Python", "OpenAI API", "Web Scraping"],
+      icon: <Briefcase className="text-primary w-6 h-6" />
+    },
+    {
       title: "Article Summarizer",
-      description: "A Streamlit application leveraging Hugging Face's Transformers library for efficient article summarization. Features include text extraction, key points highlighting, and customizable summary lengths.",
+      description: "Streamlit application leveraging Hugging Face's Transformers for efficient article summarization.",
       tech: ["Python", "Streamlit", "Hugging Face", "NLP"],
       icon: <Terminal className="text-primary w-6 h-6" />
-    },
-    {
-      title: "OpenAI RoadMap Assistant",
-      description: "An intelligent chatbot utilizing OpenAI's GPT-3.5 API to generate personalized learning roadmaps and career guidance. Provides interactive conversations and customized recommendations.",
-      tech: ["Python", "OpenAI API", "Streamlit", "LangChain"],
-      icon: <Bot className="text-primary w-6 h-6" />
-    },
-    {
-      title: "Asian Drama Script Assistant",
-      description: "Creative writing tool powered by GPT-3.5 that generates unique Asian drama scripts. Supports multiple genres and customizable plot elements.",
-      tech: ["Python", "OpenAI", "Streamlit", "NLP"],
-      icon: <BookOpen className="text-primary w-6 h-6" />
-    },
-    {
-      title: "Study-Spot",
-      description: "Comprehensive educational platform featuring automatic grading, career recommendations, and advanced text summarization capabilities.",
-      tech: ["Python", "Machine Learning", "NLP", "Streamlit"],
-      icon: <Brain className="text-primary w-6 h-6" />
-    },
-    {
-      title: "Edu4Every",
-      description: "Educational technology platform aimed at making learning accessible to everyone. Includes interactive lessons, progress tracking, and personalized learning paths.",
-      tech: ["Python", "React", "MongoDB", "Express"],
-      icon: <Sparkles className="text-primary w-6 h-6" />
-    },
-    {
-      title: "Streamlit RG Application",
-      description: "Resource management application built with Streamlit, featuring data visualization, real-time analytics, and interactive dashboards.",
-      tech: ["Python", "Streamlit", "Pandas", "Plotly"],
-      icon: <Code className="text-primary w-6 h-6" />
     }
   ];
 
@@ -52,7 +88,7 @@ const ProjectsSection = () => {
         >
           Projects
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={index}
