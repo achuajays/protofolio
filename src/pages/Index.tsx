@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, User, Briefcase, GraduationCap, Award, Code } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
 import ExperienceSection from "../components/ExperienceSection";
@@ -7,6 +7,7 @@ import ProjectsSection from "../components/ProjectsSection";
 import SkillsSection from "../components/SkillsSection";
 import EducationSection from "../components/EducationSection";
 import ContactSection from "../components/ContactSection";
+import AchievementsSection from "../components/AchievementsSection";
 
 const Index = () => {
   return (
@@ -44,6 +45,7 @@ const Index = () => {
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
+        <AchievementsSection />
         <EducationSection />
         <ContactSection />
       </main>
