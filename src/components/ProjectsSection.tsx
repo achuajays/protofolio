@@ -7,22 +7,19 @@ const ProjectsSection = () => {
       title: "SDMI - Disaster Management",
       description: "A comprehensive disaster management application built with Django and AI. Features include real-time disaster alerts, resource allocation tracking, victim identification using computer vision, and predictive analytics for disaster prevention. Integrates with weather APIs and uses machine learning for risk assessment and emergency response optimization.",
       tech: ["Django", "Python", "TensorFlow", "OpenCV", "PostgreSQL", "Redis", "REST APIs"],
-      icon: <AlertOctagon className="text-primary w-6 h-6" />,
-      link: "https://github.com/achuajays/sdmi"
+      icon: <AlertOctagon className="text-primary w-6 h-6" />
     },
     {
       title: "NestF - Agricultural E-commerce",
       description: "A farmer-centric e-commerce platform similar to Amazon/Swiggy specifically designed for agricultural products. Features include direct farmer-to-consumer sales, real-time price tracking, delivery route optimization, quality verification system, and integrated payment solutions. Helps farmers maximize profits by eliminating middlemen.",
       tech: ["React", "Node.js", "Express", "MongoDB", "Redux", "Google Maps API", "Stripe"],
-      icon: <ShoppingCart className="text-primary w-6 h-6" />,
-      link: "https://github.com/achuajays/nestf"
+      icon: <ShoppingCart className="text-primary w-6 h-6" />
     },
     {
       title: "Instagram Caption Creator",
       description: "An AI-powered application that generates engaging Instagram captions. Utilizes natural language processing to analyze image content and create contextually relevant, trending captions. Features include hashtag optimization, sentiment analysis, and engagement prediction based on historical data.",
       tech: ["Python", "OpenAI API", "Flask", "React", "Instagram API", "Natural Language Processing"],
-      icon: <Camera className="text-primary w-6 h-6" />,
-      link: "https://github.com/achuajays/instagram-caption"
+      icon: <Camera className="text-primary w-6 h-6" />
     },
     {
       title: "AI Scribe",
@@ -124,7 +121,7 @@ const ProjectsSection = () => {
                 <h3 className="text-xl font-semibold">{project.title}</h3>
               </div>
               <p className="text-gray-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, idx) => (
                   <span
                     key={idx}
@@ -134,16 +131,6 @@ const ProjectsSection = () => {
                   </span>
                 ))}
               </div>
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary/80 transition-colors text-sm flex items-center gap-1"
-                >
-                  View Project →
-                </a>
-              )}
             </motion.div>
           ))}
         </div>
