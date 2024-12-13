@@ -18,16 +18,24 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#9b87f5",
+          DEFAULT: "#5E8B9E", // Ocean teal
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#1A1F2C",
+          DEFAULT: "#1F3B4D", // Deep ocean blue
           foreground: "#ffffff",
         },
         accent: {
-          DEFAULT: "#8B5CF6",
+          DEFAULT: "#E88D9D", // Sunset coral
           foreground: "#ffffff",
+        },
+        muted: {
+          DEFAULT: "#C17F89", // Dusty rose
+          foreground: "#ffffff",
+        },
+        highlight: {
+          DEFAULT: "#FFD4B8", // Peach
+          foreground: "#1F3B4D",
         },
       },
       keyframes: {
@@ -54,6 +62,9 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
         "gradient-flow": "gradient-flow 15s ease infinite",
+      },
+      backgroundImage: {
+        'gradient-sunset': 'linear-gradient(to bottom, #5E8B9E, #1F3B4D, #C17F89, #E88D9D, #FFD4B8)',
       },
     },
   },
