@@ -1,20 +1,6 @@
 import { motion } from "framer-motion";
-import { Award, Calendar, Link as LinkIcon } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-
-interface Certification {
-  title: string;
-  issued?: string;
-  expired?: string;
-  credentialId?: string;
-  credentialUrl?: string;
-  skills?: string[];
-}
-
-interface CertificationGroup {
-  issuer: string;
-  certifications: Certification[];
-}
+import CertificationCard from "./CertificationCard";
+import { CertificationGroup } from "../types/certification";
 
 const certifications: CertificationGroup[] = [
   {
@@ -188,6 +174,21 @@ const certifications: CertificationGroup[] = [
         skills: ["Machine Learning", "Data Analysis"]
       }
     ]
+  },
+  {
+    issuer: "Google",
+    certifications: [
+      {
+        title: "Google Cloud Platform Fundamentals",
+        issued: "Jul 2024",
+        skills: ["Cloud Computing", "GCP", "DevOps"]
+      },
+      {
+        title: "Google Analytics Certification",
+        issued: "Jun 2024",
+        skills: ["Data Analytics", "Google Analytics", "Web Analytics"]
+      }
+    ]
   }
 ];
 
@@ -211,67 +212,13 @@ const CertificationsSection = () => {
           viewport={{ once: true }}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {certifications.map((group, groupIndex) => (
-            <motion.div
-              key={groupIndex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: groupIndex * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full bg-secondary border-primary/20 hover:border-primary/50 transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Award className="w-5 h-5 text-primary" />
-                    {group.issuer}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {group.certifications.map((cert, certIndex) => (
-                    <motion.div
-                      key={certIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: certIndex * 0.1 }}
-                      viewport={{ once: true }}
-                      className="border-t border-primary/10 pt-4 first:border-t-0 first:pt-0"
-                    >
-                      <h4 className="font-semibold text-lg mb-2">{cert.title}</h4>
-                      {(cert.issued || cert.expired) && (
-                        <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                          <Calendar className="w-4 h-4" />
-                          {cert.issued && <span>Issued: {cert.issued}</span>}
-                          {cert.expired && <span>Expired: {cert.expired}</span>}
-                        </div>
-                      )}
-                      {cert.credentialId && (
-                        <a
-                          href={cert.credentialUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mb-2"
-                        >
-                          <LinkIcon className="w-4 h-4" />
-                          Credential ID: {cert.credentialId}
-                        </a>
-                      )}
-                      {cert.skills && cert.skills.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                          {cert.skills.map((skill, skillIndex) => (
-                            <span
-                              key={skillIndex}
-                              className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
-                </CardContent>
-              </Card>
-            </motion.div>
+          {certifications.map((group, index) => (
+            <CertificationCard
+              key={index}
+              issuer={group.issuer}
+              certifications={group.certifications}
+              index={index}
+            />
           ))}
         </motion.div>
       </div>
