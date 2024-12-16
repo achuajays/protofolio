@@ -10,7 +10,7 @@ const ProjectsSection = () => {
       icon: <AlertOctagon className="text-primary w-6 h-6" />
     },
     {
-      title: "NestF - Agricultural E-commerce",
+      title: "Agri Cart - Agricultural E-commerce",
       description: "A farmer-centric e-commerce platform similar to Amazon/Swiggy specifically designed for agricultural products. Features include direct farmer-to-consumer sales, real-time price tracking, delivery route optimization, quality verification system, and integrated payment solutions. Helps farmers maximize profits by eliminating middlemen.",
       tech: ["React", "Node.js", "Express", "MongoDB", "Redux", "Google Maps API", "Stripe"],
       icon: <ShoppingCart className="text-primary w-6 h-6" />
