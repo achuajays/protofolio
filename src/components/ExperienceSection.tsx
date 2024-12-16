@@ -27,6 +27,17 @@ const ExperienceSection = () => {
         "Developed automation scripts for data processing and analysis",
         "Implemented machine learning models for document classification"
       ]
+    },
+    {
+      title: "Artificial Intelligence Intern",
+      company: "Acmagrade",
+      period: "Aug 2023 - Dec 2023 · 5 mos",
+      description: [
+        "Specialized in AI and machine learning applications",
+        "Developed and implemented AI solutions for real-world problems",
+        "Gained hands-on experience with various AI frameworks and tools",
+        "Contributed to multiple AI-driven projects during the internship"
+      ]
     }
   ];
 
