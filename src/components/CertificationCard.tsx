@@ -4,12 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Certification } from "../types/certification";
 
 interface CertificationCardProps {
+  certification: Certification;
   issuer: string;
-  certifications: Certification[];
   index: number;
 }
 
-const CertificationCard = ({ issuer, certifications, index }: CertificationCardProps) => {
+const CertificationCard = ({ certification, issuer, index }: CertificationCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -24,49 +24,45 @@ const CertificationCard = ({ issuer, certifications, index }: CertificationCardP
             {issuer}
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {certifications.map((cert, certIndex) => (
-            <motion.div
-              key={certIndex}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: certIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="border-t border-primary/10 pt-4 first:border-t-0 first:pt-0"
-            >
-              <h4 className="font-semibold text-lg mb-2">{cert.title}</h4>
-              {(cert.issued || cert.expired) && (
-                <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
-                  <Calendar className="w-4 h-4" />
-                  {cert.issued && <span>Issued: {cert.issued}</span>}
-                  {cert.expired && <span>Expired: {cert.expired}</span>}
-                </div>
-              )}
-              {cert.credentialId && (
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mb-2"
-                >
-                  <LinkIcon className="w-4 h-4" />
-                  Credential ID: {cert.credentialId}
-                </a>
-              )}
-              {cert.skills && cert.skills.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {cert.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </motion.div>
-          ))}
+        <CardContent>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="font-semibold text-lg mb-2">{certification.title}</h4>
+            {(certification.issued || certification.expired) && (
+              <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                <Calendar className="w-4 h-4" />
+                {certification.issued && <span>Issued: {certification.issued}</span>}
+                {certification.expired && <span>Expired: {certification.expired}</span>}
+              </div>
+            )}
+            {certification.credentialId && (
+              <a
+                href={certification.credentialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors mb-2"
+              >
+                <LinkIcon className="w-4 h-4" />
+                Credential ID: {certification.credentialId}
+              </a>
+            )}
+            {certification.skills && certification.skills.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {certification.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
+          </motion.div>
         </CardContent>
       </Card>
     </motion.div>

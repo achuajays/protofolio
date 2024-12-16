@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import CertificationCard from "./CertificationCard";
-import { CertificationGroup } from "../types/certification";
+import CertificationGroup from "./CertificationGroup";
+import { CertificationGroup as CertificationGroupType } from "../types/certification";
 
-const certifications: CertificationGroup[] = [
+const certifications: CertificationGroupType[] = [
   {
     issuer: "HackerRank",
     certifications: [
@@ -175,22 +175,7 @@ const certifications: CertificationGroup[] = [
       }
     ]
   },
-  {
-    issuer: "Google",
-    certifications: [
-      {
-        title: "Google Cloud Platform Fundamentals",
-        issued: "Jul 2024",
-        skills: ["Cloud Computing", "GCP", "DevOps"]
-      },
-      {
-        title: "Google Analytics Certification",
-        issued: "Jun 2024",
-        skills: ["Data Analytics", "Google Analytics", "Web Analytics"]
-      }
-    ]
-  }
-];
+].filter(group => group.issuer !== "Google");
 
 const CertificationsSection = () => {
   return (
@@ -212,12 +197,11 @@ const CertificationsSection = () => {
           viewport={{ once: true }}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {certifications.map((group, index) => (
-            <CertificationCard
-              key={index}
-              issuer={group.issuer}
-              certifications={group.certifications}
-              index={index}
+          {certifications.map((group, groupIndex) => (
+            <CertificationGroup
+              key={group.issuer}
+              group={group}
+              startIndex={groupIndex * group.certifications.length}
             />
           ))}
         </motion.div>
